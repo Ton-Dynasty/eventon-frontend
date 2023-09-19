@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/app/static/css/main.3ebd75af.css",
+    "main.js": "/app/static/js/main.e0eaf1bd.js",
+    "static/media/eventon-logo.png": "/app/static/media/eventon-logo.4843bc9ddd4c792af678.png",
+    "static/media/dynasty.png": "/app/static/media/dynasty.3c9086152338423c326f.png",
+    "index.html": "/app/index.html",
+    "main.3ebd75af.css.map": "/app/static/css/main.3ebd75af.css.map",
+    "main.e0eaf1bd.js.map": "/app/static/js/main.e0eaf1bd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3ebd75af.css",
+    "static/js/main.e0eaf1bd.js"
+  ]
+}
