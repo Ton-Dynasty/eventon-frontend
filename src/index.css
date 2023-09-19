@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.my-btn {
+  background: linear-gradient(90deg, rgba(9,26,111,1) 0%, rgba(14,55,105,1) 44%, rgba(0,112,255,1) 100%);
+  box-shadow: 0px 4.42184px 107.23px rgba(76, 89, 212, 0.51);
+}
+
+.my-btn:hover {
+  background: linear-gradient(90deg, rgba(9,26,111,0.7) 0%, rgba(14,55,105,0.7) 44%, rgba(0,112,255,0.7) 100%);
+}
+
+.gradient,
+.active {
+  background: linear-gradient(90deg, rgba(9,26,111,1) 0%, rgba(14,55,105,1) 44%, rgba(0,112,255,1) 100%);
+}
+
+.active {
+  color: #fff;
+  padding: 1rem;
+  border-radius: 100%;
+}
+
+@layer base {
+  body {
+    @apply font-secondary text-lg leading-8 text-blue-950;
+  }
+  .h2 {
+    @apply font-primary text-[32px] mb-6 tracking-[10%] uppercase;
+  }
+  .h3 {
+    @apply font-primary font-semibold text-[26px] mb-6 leading-[46px];
+  }
+  .my-btn {
+    @apply rounded-full font-primary text-white font-medium cursor-pointer;
+  }
+  .my-btn-sm {
+    @apply h-[48px] px-6 text-sm;
+  }
+  .my-btn-lg {
+    @apply h-[56px] px-10 text-base;
+  }
+  .my-btn-link {
+    @apply text-base;
+  }
+  .text-gradient {
+    @apply bg-gradient-to-r text-transparent bg-clip-text from-blue-950 to-blue-950 font-bold font-primary;
+  }
+  .section {
+    @apply py-8 lg:py-24 lg:h-screen flex items-center;
+  }
+}
