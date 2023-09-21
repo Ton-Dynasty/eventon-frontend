@@ -1,9 +1,34 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { fadeIn } from "../variants";
-import Image from "../assets/subscibe.jpg";
+import React from 'react';
+import Image from '../assets/subscibe.jpg';
+import { useTonAddress, useTonConnectUI, useTonWallet } from '@tonconnect/ui-react';
 
 const Protocol = () => {
+  const [tonConnectUI] = useTonConnectUI();
+
+  const handleClick = async () => {
+    if (!tonConnectUI.connected) {
+      alert('Please connect to wallet');
+      return;
+    }
+    await tonConnectUI.sendTransaction({
+      validUntil: Math.floor(Date.now() / 1000) + 3600,
+      messages: [
+        {
+          address: '0:7f21b35380bec8d697154ce9ff869bbdd24da09667fd7b5075eeee795b8fde78',
+          amount: 0.1,
+        },
+      ],
+    });
+  };
+
+  const cards = [
+    {
+      image: Image,
+      title: 'Subscribe as a protocol',
+      description: 'Provide a signal and earn',
+    },
+  ];
+
   return (
     <div id="protocol" className="container mx-auto  min-h-screen">
       <div className=" hero min-h-max rounded-lg bg-slate-300/20 p-4 shadow-2xl shadow-blue-400">
@@ -15,9 +40,7 @@ const Protocol = () => {
               </div>
             </div>
             <div className="chat chat-end">
-              <div className=" chat-bubble  bg-blue-800">
-                Let me subscribe bro!!
-              </div>
+              <div className=" chat-bubble  bg-blue-800">Let me subscribe bro!!</div>
             </div>
           </div>
           <div>
@@ -32,42 +55,22 @@ const Protocol = () => {
         <button className="btn btn-neutral">Official</button>
       </div>
       <div className="mt-6 flex gap-x-2">
-        <div className="card w-96 bg-base-100 shadow-xl">
-          <figure>
-            <img src={Image} alt="Shoes" />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">Subscribe as a protocol</h2>
-            <p>Provide a signal and earn</p>
-            <div className="card-actions justify-end">
-              <button className="btn btn-primary text-lg">GO</button>
+        {cards.map((card, idx) => (
+          <div className="card w-96 bg-base-100 shadow-xl" key={`carditem-${idx}`}>
+            <figure>
+              <img src={card.image} alt="Shoes" />
+            </figure>
+            <div className="card-body">
+              <h2 className="card-title">{card.title}</h2>
+              <p>{card.description}</p>
+              <div className="card-actions justify-end">
+                <button className="btn btn-primary text-lg" onClick={() => handleClick()}>
+                  Subscribe
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="card w-96 bg-base-100 shadow-xl">
-          <figure>
-            <img src={Image} alt="Shoes" />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">Subscribe as a protocol</h2>
-            <p>Provide a signal and earn</p>
-            <div className="card-actions justify-end">
-              <button className="btn btn-primary text-lg">GO</button>
-            </div>
-          </div>
-        </div>
-        <div className="card w-96 bg-base-100 shadow-xl">
-          <figure>
-            <img src={Image} alt="Shoes" />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">Subscribe as a protocol</h2>
-            <p>Provide a signal and earn</p>
-            <div className="card-actions justify-end">
-              <button className="btn btn-primary text-lg">GO</button>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

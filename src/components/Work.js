@@ -16,9 +16,9 @@ const Work = () => {
             frameborder="0"
             width="900"
             height="480"
-            allowfullscreen="true"
-            mozallowfullscreen="true"
-            webkitallowfullscreen="true"
+            allowFullScreen="true"
+            mozallowFullScreen="true"
+            webkitallowFullScreen="true"
           ></motion.iframe>
           <motion.h2
             className="h2 font-bold text-blue-800"

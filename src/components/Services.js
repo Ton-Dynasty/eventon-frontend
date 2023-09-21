@@ -45,7 +45,7 @@ const Services = () => {
             frameborder="0"
             scrolling="no"
             allow="fullscreen; clipboard-read; clipboard-write"
-            allowfullscreen
+            allowFullScreen
           ></motion.iframe>
         </div>
       </div>
