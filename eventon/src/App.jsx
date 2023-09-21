@@ -14,7 +14,7 @@ import { useAutoAnimate } from '@formkit/auto-animate/react'
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/eventon-frontend",
     element: (
       <div>
         <Banner />
