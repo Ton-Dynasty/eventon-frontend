@@ -1,13 +1,13 @@
 import React from 'react';
 import Image from '../assets/subscibe.jpg';
-import { useTonConnectUI, useTonWallet } from '@tonconnect/ui-react';
+import { useTonConnectUI } from '@tonconnect/ui-react';
 import { Address, beginCell, toNano } from '@ton/ton';
 
 const Protocol = () => {
   const [tonConnectUI] = useTonConnectUI();
   const deadline = Math.floor(Date.now() / 1000) + 3600;
-  const universalRouterAddress = Address.parse(''); // TODO: add address
-  const userDefaultCallbackAddress = Address.parse(''); // TODO: add address
+  const universalRouterAddress = Address.parse('kQA0XSCioq2wv_YlebEFJysRiUxzQ2MIAu2OPFPAgl_YD9Fb'); // TODO: add address
+  const userDefaultCallbackAddress = Address.parse('kQA0XSCioq2wv_YlebEFJysRiUxzQ2MIAu2OPFPAgl_YD9Fb'); // TODO: add address
 
   const handleClick = async () => {
     if (!tonConnectUI.connected) {
