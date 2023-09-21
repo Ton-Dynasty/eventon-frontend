@@ -1,16 +1,11 @@
 import React from "react";
-import {
-  FaYoutube,
-  FaGithub,
-  FaDribbble,
-  FaDochub,
-  FaBook,
-} from "react-icons/fa";
+import { FaYoutube, FaGithub, FaBook } from "react-icons/fa";
 import Image from "../assets/coin.png";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
-import { Link } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
@@ -51,9 +46,8 @@ const Banner = () => {
               viewport={{ once: false, amount: 0.7 }}
               className="mx-auto mb-8 max-w-lg lg:mx-0"
             >
-              GM! Ton is good. Joe Ton how are you? <br />
-              Event on TON is a message hub. <br />
-              Let's her G TON cool cool cool.
+              Customize your code or use our smart contracts for automatic
+              actions on specific signals!
             </motion.p>
             <motion.div
               variants={fadeIn("up", 0.6)}
@@ -62,19 +56,18 @@ const Banner = () => {
               viewport={{ once: false, amount: 0.7 }}
               className="mx-auto mb-12 flex max-w-max items-center gap-x-6 lg:mx-0"
             >
-              <Link
-                to="services"
-                className="my-btn my-btn-lg inline-flex items-center justify-center"
+              <a className="my-btn my-btn-lg inline-flex items-center justify-center">
+                <Link to="/app">Start</Link>
+              </a>
+              <ScrollLink
+                to="contact"
+                className="text-gradient my-btn-link cursor-pointer"
                 activeClass="active"
                 smooth={true}
                 spy={true}
               >
-                Start
-              </Link>
-
-              <a href="#" className="text-gradient my-btn-link">
                 Contact us
-              </a>
+              </ScrollLink>
             </motion.div>
             {/* social */}
             <motion.div
