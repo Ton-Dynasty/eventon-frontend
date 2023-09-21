@@ -26,11 +26,13 @@ const router = createBrowserRouter([
         <div className="h-[4000px]"></div>
       </div>
     ),
+
   },
   {
-    path: "/app",
+    path: "/eventon-frontend/app",
     element: <Protocol />,
   },
+
 ]);
 
 const App = () => {

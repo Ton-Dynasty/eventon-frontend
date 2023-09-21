@@ -57,7 +57,7 @@ const Banner = () => {
               className="mx-auto mb-12 flex max-w-max items-center gap-x-6 lg:mx-0"
             >
               <a className="my-btn my-btn-lg inline-flex items-center justify-center">
-                <Link to="/app">Start</Link>
+                <Link to="app">Start</Link>
               </a>
               <ScrollLink
                 to="contact"
