@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
-import { TypeAnimation } from "react-type-animation";
 
 const Work = () => {
   return (
