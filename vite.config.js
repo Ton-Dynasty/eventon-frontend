@@ -5,7 +5,7 @@ import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfil
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/eventon-frontend/',
+  base: process.env.VITE_APP_MODE === 'production' ? '/eventon-frontend/' : '/',
   plugins: [react()],
   optimizeDeps: {
     esbuildOptions: {
