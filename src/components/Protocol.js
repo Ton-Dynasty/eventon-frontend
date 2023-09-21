@@ -1,21 +1,33 @@
 import React from 'react';
 import Image from '../assets/subscibe.jpg';
-import { useTonAddress, useTonConnectUI, useTonWallet } from '@tonconnect/ui-react';
+import { useTonConnectUI, useTonWallet } from '@tonconnect/ui-react';
+import { Address, beginCell, toNano } from '@ton/ton';
 
 const Protocol = () => {
   const [tonConnectUI] = useTonConnectUI();
+  const deadline = Math.floor(Date.now() / 1000) + 3600;
+  const universalRouterAddress = Address.parse(''); // TODO: add address
+  const userDefaultCallbackAddress = Address.parse(''); // TODO: add address
 
   const handleClick = async () => {
     if (!tonConnectUI.connected) {
       alert('Please connect to wallet');
       return;
     }
+    const body = beginCell()
+      .storeUint(1953340414, 32)
+      .storeAddress(tonConnectUI.account.address)
+      .storeInt(deadline, 257)
+      .storeInt(0, 257)
+      .storeRef(beginCell().storeAddress(userDefaultCallbackAddress).endCell())
+      .endCell();
     await tonConnectUI.sendTransaction({
-      validUntil: Math.floor(Date.now() / 1000) + 3600,
+      validUntil: deadline,
       messages: [
         {
-          address: '0:7f21b35380bec8d697154ce9ff869bbdd24da09667fd7b5075eeee795b8fde78',
-          amount: 0.1,
+          address: universalRouterAddress.toRawString(),
+          amount: toNano(0.5),
+          payload: body.toBoc().toString('base64'),
         },
       ],
     });
