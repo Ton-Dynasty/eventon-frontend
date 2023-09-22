@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Image from '../assets/subscibe.jpg';
 import { useTonConnectUI, useTonAddress } from '@tonconnect/ui-react';
 import { Address, beginCell, toNano } from '@ton/ton';
+import { motion } from 'framer-motion';
+import { fadeIn } from '../variants';
 
 const Protocol = () => {
   const [tonConnectUI] = useTonConnectUI();
@@ -43,22 +45,27 @@ const Protocol = () => {
     {
       title: 'PROracle',
       description: 'Send price signal of TONCOIN/USDC',
+      address: 'EQB_IbNTgL7I1pcVTOn_hpu90k2glmf9e1B17u55W4_eeKxe',
     },
     {
       title: 'BugDetector',
       description: 'Detect contract bug and send signal',
+      address: 'EQB_IbNTgL7I1pcVTOn_hpu90k2glmf9e1B17u55W4_eeKxe',
     },
     {
       title: 'CopyTrading',
       description: 'Copy trading signal from other trader',
+      address: 'EQB_IbNTgL7I1pcVTOn_hpu90k2glmf9e1B17u55W4_eeKxe',
     },
     {
       title: 'Malicious-smart-contract-zkml',
       description: 'Malicious Smart Contract Detection Bot V3',
+      address: 'EQB_IbNTgL7I1pcVTOn_hpu90k2glmf9e1B17u55W4_eeKxe',
     },
     {
       title: 'AML',
       description: 'Anti Money Laundering Bot',
+      address: 'EQB_IbNTgL7I1pcVTOn_hpu90k2glmf9e1B17u55W4_eeKxe',
     },
   ];
   const forms = [
@@ -125,45 +132,79 @@ const Protocol = () => {
     <div id="protocol" className="container mx-auto  min-h-screen">
       <div className=" hero min-h-max rounded-lg bg-slate-300/20 p-4 shadow-2xl shadow-blue-400">
         <div className="hero-content w-full justify-between rounded-lg sm:flex-row-reverse">
-          <div className="hidden min-w-max sm:block font-medium">
-            <div className="chat chat-start">
+          <motion.div
+            variants={fadeIn('down', 0.3)}
+            initial="hidden"
+            whileInView={'show'}
+            className="hidden min-w-max sm:block font-medium"
+          >
+            <motion.div
+              variants={fadeIn('right', 0.3)}
+              initial="hidden"
+              whileInView={'show'}
+              className="chat chat-start"
+            >
               <div className="chat-bubble bg-blue-600 ">
                 GM! <br />I have a contract bug detection signal.
               </div>
-            </div>
-            <div className="chat chat-end">
+            </motion.div>
+            <motion.div variants={fadeIn('left', 0.6)} initial="hidden" whileInView={'show'} className="chat chat-end">
               <div className="chat-bubble  bg-blue-800">Let me subscribe BRO!!</div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
           <div>
-            <h1 className="text-5xl font-bold">Events on TON</h1>
-            <p className="py-6">Provide signal to Earn</p>
-            <button
+            <motion.h1
+              variants={fadeIn('down', 0.3)}
+              initial="hidden"
+              whileInView={'show'}
+              className="text-5xl font-bold"
+            >
+              Events on TON
+            </motion.h1>
+            <motion.p variants={fadeIn('up', 0.3)} initial="hidden" whileInView={'show'} className="py-6">
+              Provide signal to Earn
+            </motion.p>
+            <motion.button
+              variants={fadeIn('up', 0.3)}
+              initial="hidden"
+              whileInView={'show'}
               className="btn btn-primary text-lg"
               onClick={() => document.getElementById('my_modal_1').showModal()}
             >
               Build a de-bot
-            </button>
+            </motion.button>
           </div>
         </div>
       </div>
-      <div className="mt-6 flex flex-row gap-8">
+      <motion.div
+        variants={fadeIn('right', 0.3)}
+        initial="hidden"
+        whileInView={'show'}
+        className="mt-6 flex flex-row gap-8"
+      >
         <button className="btn bg-blue-700 text-white hover:bg-blue-500 border-none text-lg font-base">Popular</button>
         <button className="btn btn-neutral  text-lg font-base">Official</button>
-      </div>
+      </motion.div>
       <div className="mt-6 grid gap-x-2 md:grid-cols-2 grid-cols-1 gap-4">
         {cards.map((card, idx) => (
-          <div className="card w-full gap-12 bg-base-100 shadow-xl col-span-1" key={`carditem-${idx}`}>
+          <motion.div
+            variants={fadeIn('down', 0.4)}
+            initial="hidden"
+            whileInView={'show'}
+            className="card w-full gap-12 bg-base-100/40 shadow-xl col-span-1"
+            key={`carditem-${idx}`}
+          >
             <div className="card-body">
-              <h2 className="card-title text-xl!">{card.title}</h2>
+              <h2 className="text-2xl font-semibold">{card.title}</h2>
               <p>{card.description}</p>
+              <p className="truncate w-32 badge badge-lg bg-black text-white">{card.address}</p>
               <div className="card-actions justify-end">
                 <button className="btn btn-primary text-lg" onClick={() => handleClick()}>
                   Subscribe
                 </button>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
       <BuildForm />

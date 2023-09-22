@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-import Logo from "../assets/eventon-logo.png";
-import { TonConnectButton } from "@tonconnect/ui-react";
+import Logo from '../assets/eventon-logo.png';
+import { TonConnectButton } from '@tonconnect/ui-react';
 
 const Header = () => {
   // const wallet = useTonWallet();
