@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaYoutube, FaGithub, FaBook } from 'react-icons/fa';
 import Image from '../assets/coin.png';
 import { TypeAnimation } from 'react-type-animation';
@@ -8,27 +8,6 @@ import { Link as ScrollLink } from 'react-scroll';
 import { Link } from 'react-router-dom';
 
 const Banner = () => {
-  const eventSignalCode = `import "@stdlib/ownable";
-
-  trait Alertable with Ownable {
-      owner: Address;
-      universalRouterAddress: Address;
-      eventId: Int; // Event id of this protocol
-  
-      // Send event signal to Universal Router so that it can be broadcasted to subscribers
-      fun sendAlert(msg: EventSignal) {
-          send(SendParameters{
-              to: self.universalRouterAddress, 
-              value: 0,
-              bounce: false,
-              mode: SendRemainingValue,
-              body: EventSignal{ 
-                  eventId: msg.eventId, // This is protocol's event signal id, it can let one protocol to have multiple event signals(not implemented yet)
-                  payload: msg.payload // Information about the event signal
-              }.toCell()
-          });
-      }
-  }`;
   return (
     <section className="min-h-[85vh] lg:min-h-[78vh]" id="home">
       <div className="container mx-auto flex flex-col justify-between">

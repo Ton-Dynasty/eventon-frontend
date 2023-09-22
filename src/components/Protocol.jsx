@@ -9,11 +9,6 @@ const Protocol = () => {
   const deadline = Math.floor(Date.now() / 1000) + 3600;
   const universalRouterAddress = Address.parse('EQDgHbzuBG3bXP_0R_XEqc4nhcS7fwA2zR4VDeAaP4AcdUa2'); // TODO: add address
   const userDefaultCallbackAddress = Address.parse('EQAFcgv5ieBtRg-7G842_WU5xPxLLhrRNSPFpKzz7INDoEmR'); // TODO: add address
-  const [showToast, setShowToast] = useState(false);
-  console.log(userAddress);
-  setTimeout(() => {
-    setShowToast(true);
-  }, 3000);
   const handleClick = async () => {
     if (!tonConnectUI.connected || !userAddress) {
       alert('Please connect to wallet');
@@ -27,28 +22,23 @@ const Protocol = () => {
       .storeRef(beginCell().storeAddress(userDefaultCallbackAddress).endCell())
       .endCell();
 
-    await tonConnectUI.sendTransaction({
-      validUntil: deadline,
-      messages: [
-        {
-          address: universalRouterAddress.toRawString(),
-          amount: toNano(0.5).toString(),
-          payload: body.toBoc().toString('base64'),
-        },
-      ],
-    });
+    await tonConnectUI.sendTransaction(
+      {
+        validUntil: deadline,
+        messages: [
+          {
+            address: universalRouterAddress.toRawString(),
+            amount: toNano(0.5).toString(),
+            payload: body.toBoc().toString('base64'),
+          },
+        ],
+      },
+      {
+        modals: 'all',
+        notifications: 'all',
+      }
+    );
   };
-  // const SuccessMessage = () => {
-  //   if (showToast) {
-  //     return (
-  //       <div className="toast toast-bottom toast-end">
-  //         <div className="alert alert-success">
-  //           <span>Message sent successfully.</span>
-  //         </div>
-  //       </div>
-  //     );
-  //   }
-  // };
   const cards = [
     {
       title: 'PROracle',
@@ -176,7 +166,6 @@ const Protocol = () => {
           </div>
         ))}
       </div>
-      {/* <SuccessMessage /> */}
       <BuildForm />
     </div>
   );
