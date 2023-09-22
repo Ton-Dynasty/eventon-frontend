@@ -1,0 +1,32 @@
+/* :root {
+    --shiki-color-text: #414141;
+    --shiki-color-background: transparent;
+    --shiki-token-constant: #1976d2;
+    --shiki-token-string: #22863a;
+    --shiki-token-comment: #aaaaaa;
+    --shiki-token-keyword: #d32f2f;
+    --shiki-token-parameter: #ff9801;
+    --shiki-token-function: #6f42c1;
+    --shiki-token-string-expression: var(--shiki-token-string);
+    --shiki-token-punctuation: #212121;
+    --shiki-token-link: var(--shiki-token-string);
+  } */
+  
+  :root {
+    --shiki-color-text: #d1d1d1;
+    --shiki-token-constant: #79b8ff;
+    --shiki-token-string: #ffab70;
+    --shiki-token-comment: #6b737cc0;
+    --shiki-token-keyword: #f97583;
+    /*--shiki-token-parameter: #ff9800; is same as in light mode */
+    --shiki-token-function: #b392f0;
+    --shiki-token-string-expression: #4bb74a;
+    --shiki-token-punctuation: #bbbbbb;
+    --shiki-token-link: var(--shiki-token-string);
+  }
+  
+  code,
+  pre {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+    font-weight: 500;
+  }
