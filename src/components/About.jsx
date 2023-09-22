@@ -23,11 +23,11 @@ const About = () => {
             viewport={{ once: false, amount: 0.3 }}
             className=""
           >
-            <h2 className="h2 font-bold text-blue-800">About us</h2>
-            <h3 className="h3 mb-4">
+            <h2 className="h2 font-bold text-4xl text-blue-800 font-primary">About us</h2>
+            <h3 className="h3 mb-4 font-tertiary">
               We are <span>TON fanatic</span> and <span>keep explore this amazing world</span>{' '}
             </h3>
-            <p className="mb-6">
+            <p className="mb-6 ">
               Come from NYCU in Hsinchu Taiwan, we are a group of TON fanatic and keep explore this amazing world ...
             </p>
             {/* stats */}

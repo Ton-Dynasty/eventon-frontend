@@ -39,11 +39,11 @@ const Banner = () => {
             whileInView={'show'}
             className="lg:col-span-1 gap-4 col-span-2 flex flex-col items-start justify-center"
           >
-            <h2 className="font-bold text-5xl">
+            <h2 className="font-bold text-4xl font-primary">
               Customize <br />
               <span className=" text-blue-600">event signal</span>
             </h2>
-            <div className="text-2xl text-black">
+            <div className="text-xl text-black">
               By simply inheriting from alertable and filling in the message payload, you can send any event signal to
               the subscriber's contract.
             </div>

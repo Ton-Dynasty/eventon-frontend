@@ -11,7 +11,7 @@ const Protocol = () => {
   const userDefaultCallbackAddress = Address.parse('EQAFcgv5ieBtRg-7G842_WU5xPxLLhrRNSPFpKzz7INDoEmR'); // TODO: add address
   const [showToast, setShowToast] = useState(false);
   console.log(userAddress);
-  setInterval(() => {
+  setTimeout(() => {
     setShowToast(true);
   }, 3000);
   const handleClick = async () => {
@@ -38,22 +38,37 @@ const Protocol = () => {
       ],
     });
   };
-  const SuccessMessage = () => {
-    if (showToast) {
-      return (
-        <div className="toast toast-bottom toast-end">
-          <div className="alert alert-success">
-            <span>Message sent successfully.</span>
-          </div>
-        </div>
-      );
-    }
-  };
+  // const SuccessMessage = () => {
+  //   if (showToast) {
+  //     return (
+  //       <div className="toast toast-bottom toast-end">
+  //         <div className="alert alert-success">
+  //           <span>Message sent successfully.</span>
+  //         </div>
+  //       </div>
+  //     );
+  //   }
+  // };
   const cards = [
     {
-      image: Image,
       title: 'PROracle',
       description: 'Send price signal of TONCOIN/USDC',
+    },
+    {
+      title: 'BugDetector',
+      description: 'Detect contract bug and send signal',
+    },
+    {
+      title: 'CopyTrading',
+      description: 'Copy trading signal from other trader',
+    },
+    {
+      title: 'Malicious-smart-contract-zkml',
+      description: 'Malicious Smart Contract Detection Bot V3',
+    },
+    {
+      title: 'AML',
+      description: 'Anti Money Laundering Bot',
     },
   ];
   const forms = [
@@ -146,11 +161,11 @@ const Protocol = () => {
         <button className="btn bg-blue-700 text-white hover:bg-blue-500 border-none text-lg font-base">Popular</button>
         <button className="btn btn-neutral  text-lg font-base">Official</button>
       </div>
-      <div className="mt-6 flex gap-x-2">
+      <div className="mt-6 grid gap-x-2 md:grid-cols-2 grid-cols-1 gap-4">
         {cards.map((card, idx) => (
-          <div className="card w-96 bg-base-100 shadow-xl" key={`carditem-${idx}`}>
+          <div className="card w-full gap-12 bg-base-100 shadow-xl col-span-1" key={`carditem-${idx}`}>
             <div className="card-body">
-              <h2 className="card-title">{card.title}</h2>
+              <h2 className="card-title text-xl!">{card.title}</h2>
               <p>{card.description}</p>
               <div className="card-actions justify-end">
                 <button className="btn btn-primary text-lg" onClick={() => handleClick()}>
@@ -161,7 +176,7 @@ const Protocol = () => {
           </div>
         ))}
       </div>
-      <SuccessMessage />
+      {/* <SuccessMessage /> */}
       <BuildForm />
     </div>
   );
