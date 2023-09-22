@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-import Logo from "../assets/eventon-logo.png";
-import { TonConnectButton } from "@tonconnect/ui-react";
+import Logo from '../assets/eventon-logo.png';
+import { TonConnectButton } from '@tonconnect/ui-react';
 
 const Header = () => {
   // const wallet = useTonWallet();
@@ -10,7 +10,7 @@ const Header = () => {
     <header className="py-8">
       <div className="container mx-auto">
         <div className="flex items-center justify-between">
-          <a href="/" className="flex items-center">
+          <a href={import.meta.env.MODE === 'development' ? '/' : '/eventon-frontend/'} className="flex items-center">
             <img className="w-10" src={Logo} alt="" />
             <span className=" text-2xl font-bold text-blue-800">
               Even<span className=" text-blue-500">ton</span>

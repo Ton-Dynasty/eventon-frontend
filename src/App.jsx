@@ -35,7 +35,7 @@ const router = createBrowserRouter(
     },
   ],
   {
-    basename: '/eventon-frontend',
+    basename: import.meta.env.BASE_URL,
   }
 );
 
