@@ -3,6 +3,7 @@ import { Address, beginCell, toNano } from '@ton/ton';
 import { motion } from 'framer-motion';
 import { fadeIn } from '../variants';
 import { FiCopy } from 'react-icons/fi';
+import { useState } from 'react';
 const Protocol = () => {
   const [tonConnectUI] = useTonConnectUI();
   const userAddress = useTonAddress(true);
@@ -42,26 +43,31 @@ const Protocol = () => {
   const cards = [
     {
       title: 'PROracle',
+      type: 'Official',
       description: 'Send price signal of TONCOIN/USDC',
       address: 'EQB_IbNTgL7I1pcVTOn_hpu90k2glmf9e1B17u55W4_eeKxe',
     },
     {
       title: 'BugDetector',
+      type: 'Official',
       description: 'Detect contract bug and send signal',
       address: 'EQB_IbNTgL7I1pcVTOn_hpu90k2glmf9e1B17u55W4_eeKxe',
     },
     {
       title: 'CopyTrading',
+      type: 'Popular',
       description: 'Copy trading signal from other trader',
       address: 'EQB_IbNTgL7I1pcVTOn_hpu90k2glmf9e1B17u55W4_eeKxe',
     },
     {
       title: 'Malicious-smart-contract-zkml',
+      type: 'Official',
       description: 'Malicious Smart Contract Detection Bot V3',
       address: 'EQB_IbNTgL7I1pcVTOn_hpu90k2glmf9e1B17u55W4_eeKxe',
     },
     {
       title: 'AML',
+      type: 'Popular',
       description: 'Anti Money Laundering Bot',
       address: 'EQB_IbNTgL7I1pcVTOn_hpu90k2glmf9e1B17u55W4_eeKxe',
     },
@@ -88,6 +94,7 @@ const Protocol = () => {
       placeholder: '0.5',
     },
   ];
+  const [currentType, setCurrentType] = useState('Popular');
   const BuildForm = () => {
     return (
       <dialog id="my_modal_1" className="modal">
@@ -183,36 +190,48 @@ const Protocol = () => {
         whileInView={'show'}
         className="mt-6 flex flex-row gap-8"
       >
-        <button className="btn bg-blue-700 text-white hover:bg-blue-500 border-none text-lg font-base">Popular</button>
-        <button className="btn btn-neutral text-lg  dark:text-blue-300 text-white font-base">Official</button>
+        <button
+          className="btn bg-blue-700 text-white hover:bg-blue-500 border-none text-lg font-base"
+          onClick={() => setCurrentType('Popular')}
+        >
+          Popular
+        </button>
+        <button
+          className="btn btn-neutral text-lg  dark:text-blue-300 text-white font-base"
+          onClick={() => setCurrentType('Official')}
+        >
+          Official
+        </button>
       </motion.div>
       <div className="mt-6 grid gap-x-2 md:grid-cols-2 grid-cols-1 gap-4">
-        {cards.map((card, idx) => (
-          <motion.div
-            variants={fadeIn('down', 0.4)}
-            initial="hidden"
-            whileInView={'show'}
-            className="card w-full gap-12 bg-white/50 shadow-xl col-span-1"
-            key={`carditem-${idx}`}
-          >
-            <div className="card-body">
-              <div className="flex">
-                <h2 className="text-2xl font-semibold flex-1">{card.title}</h2>
-                <div className="flex justify-center items-center gap-x-2">
-                  <p className="truncate w-[128px] bg-black/10 text-black rounded-lg px-3">{card.address}</p>
-                  <FiCopy className=" cursor-pointer" />
+        {cards
+          .filter((card) => card.type === currentType)
+          .map((card, idx) => (
+            <motion.div
+              variants={fadeIn('down', 0.4)}
+              initial="hidden"
+              whileInView={'show'}
+              className="card w-full gap-12 bg-white/50 shadow-xl col-span-1"
+              key={`carditem-${idx}`}
+            >
+              <div className="card-body">
+                <div className="flex">
+                  <h2 className="text-2xl font-semibold flex-1">{card.title}</h2>
+                  <div className="flex justify-center items-center gap-x-2">
+                    <p className="truncate w-[128px] bg-black/10 text-black rounded-lg px-3">{card.address}</p>
+                    <FiCopy className=" cursor-pointer" />
+                  </div>
+                </div>
+
+                <p>{card.description}</p>
+                <div className="card-actions justify-end">
+                  <button className="btn btn-primary text-lg" onClick={() => handleClick()}>
+                    Subscribe
+                  </button>
                 </div>
               </div>
-
-              <p>{card.description}</p>
-              <div className="card-actions justify-end">
-                <button className="btn btn-primary text-lg" onClick={() => handleClick()}>
-                  Subscribe
-                </button>
-              </div>
-            </div>
-          </motion.div>
-        ))}
+            </motion.div>
+          ))}
       </div>
       <BuildForm />
     </div>
