@@ -91,8 +91,8 @@ const Protocol = () => {
   const BuildForm = () => {
     return (
       <dialog id="my_modal_1" className="modal">
-        <div className="modal-box">
-          <h3 className="font-bold text-3xl">Register to become a provider</h3>
+        <div className="modal-box  text-black bg-white">
+          <h3 className="font-bold text-3xl ">Register to become a provider</h3>
           <p className="py-4">
             Make sure your contract have inherited <span className="text-red-600 font-semibold">Alertable</span>{' '}
             interface!
@@ -103,12 +103,12 @@ const Protocol = () => {
                 {forms.map((form, idx) => (
                   <div className="" key={`form-${idx}`}>
                     <label className="label">
-                      <span className="label-text font-semibold text-lg">{form.name}</span>
+                      <span className="label-text font-semibold text-lg text-black">{form.name}</span>
                     </label>
                     <input
                       type="text"
                       placeholder={form.placeholder}
-                      className="input input-bordered w-full"
+                      className="input input-bordered w-full bg-white"
                       key={`formitem-${idx}`}
                     />
                   </div>
@@ -116,13 +116,16 @@ const Protocol = () => {
               </div>
               {/* if there is a button in form, it will close the modal */}
               <div className="flex justify-end gap-3">
-                <button className="btn mt-5 bg-blue-200 hover:bg-blue-300 text-xl">Close</button>
-                <button className="btn mt-5 bg-blue-600 hover:bg-blue-400 text-xl text-white">Send</button>
+                <button className="btn mt-5 bg-blue-200 hover:bg-blue-300 text-xl text-black border-none">Close</button>
+                <button className="btn mt-5 bg-blue-600 hover:bg-blue-400 text-xl text-white border-none">Send</button>
               </div>
               {/* Bot name, description, address, user callback template or not */}
             </form>
           </div>
         </div>
+        <form method="dialog" className="modal-backdrop">
+          <button>close</button>
+        </form>
       </dialog>
     );
   };
