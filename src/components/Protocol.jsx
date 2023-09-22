@@ -4,7 +4,7 @@ import { useTonConnectUI, useTonAddress } from '@tonconnect/ui-react';
 import { Address, beginCell, toNano } from '@ton/ton';
 import { motion } from 'framer-motion';
 import { fadeIn } from '../variants';
-
+import { FiCopy } from 'react-icons/fi';
 const Protocol = () => {
   const [tonConnectUI] = useTonConnectUI();
   const userAddress = useTonAddress(true);
@@ -195,9 +195,15 @@ const Protocol = () => {
             key={`carditem-${idx}`}
           >
             <div className="card-body">
-              <h2 className="text-2xl font-semibold">{card.title}</h2>
+              <div className="flex">
+                <h2 className="text-2xl font-semibold flex-1">{card.title}</h2>
+                <div className="flex justify-center items-center gap-x-2">
+                  <p className="truncate w-[128px] bg-black/10 text-black rounded-lg px-3">{card.address}</p>
+                  <FiCopy className=" cursor-pointer" />
+                </div>
+              </div>
+
               <p>{card.description}</p>
-              <p className="truncate w-32 badge badge-lg bg-black text-white">{card.address}</p>
               <div className="card-actions justify-end">
                 <button className="btn btn-primary text-lg" onClick={() => handleClick()}>
                   Subscribe
