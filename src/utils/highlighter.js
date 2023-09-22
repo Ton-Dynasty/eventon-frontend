@@ -2,8 +2,7 @@ import grammer from '../styles/grammar-tact.json';
 import cssVariables from '../styles/css-variables.json';
 import { getHighlighter, setCDN } from 'shiki';
 
-// setCDN(import.meta.env.MODE === 'development' ? '/shiki/' : '/');
-setCDN('/shiki');
+setCDN(import.meta.env.MODE === 'development' ? '/shiki/' : '/eventon-frontend/shiki/');
 
 /**
  *
