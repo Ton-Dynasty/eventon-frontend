@@ -45,7 +45,7 @@ const Banner = () => {
   }, []);
   return (
     <section className="min-h-[85vh] lg:min-h-[78vh]" id="home">
-      <div className="container mx-auto">
+      <div className="container mx-auto flex flex-col justify-between">
         <div className="flex flex-col gap-y-8 lg:ml-8 lg:flex-row lg:items-center lg:gap-x-12">
           <div className="flex-1 text-center font-secondary lg:text-left">
             <motion.h1
@@ -67,7 +67,7 @@ const Banner = () => {
               <span className="mr-4">A </span>
               <TypeAnimation
                 sequence={['Flexible', 2000, 'Easy', 2000, 'Scalable', 2000]}
-                speed={100}
+                speed={40}
                 className="mr-4 text-blue-600"
                 wrapper="span"
                 repeat={Infinity}

@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import { BiHomeAlt, BiUser } from "react-icons/bi";
-import { BsBriefcase, BsChatSquareText, BsClipboard, BsFillLayersFill } from "react-icons/bs";
-import { Link } from "react-scroll";
+import { BiHomeAlt, BiUser } from 'react-icons/bi';
+import { BsBriefcase, BsChatSquareText, BsClipboard, BsFillLayersFill } from 'react-icons/bs';
+import { Link } from 'react-scroll';
 
 const Nav = () => {
   return (
@@ -21,6 +21,15 @@ const Nav = () => {
             <BiHomeAlt />
           </Link>
           <Link
+            to="instruction"
+            className="flex h-[48px] w-[48px] cursor-pointer items-center justify-center"
+            activeClass="active"
+            smooth={true}
+            spy={true}
+          >
+            <BsFillLayersFill />
+          </Link>
+          <Link
             to="about"
             className="flex h-[48px] w-[48px] cursor-pointer items-center justify-center"
             activeClass="active"
@@ -37,15 +46,6 @@ const Nav = () => {
             spy={true}
           >
             <BsClipboard />
-          </Link>
-          <Link
-            to="tx"
-            className="flex h-[48px] w-[48px] cursor-pointer items-center justify-center"
-            activeClass="active"
-            smooth={true}
-            spy={true}
-          >
-            <BsFillLayersFill />
           </Link>
           <Link
             to="work"
