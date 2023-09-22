@@ -6,8 +6,8 @@ import { Address, beginCell, toNano } from '@ton/ton';
 const Protocol = () => {
   const [tonConnectUI] = useTonConnectUI();
   const deadline = Math.floor(Date.now() / 1000) + 3600;
-  const universalRouterAddress = Address.parse('kQA0XSCioq2wv_YlebEFJysRiUxzQ2MIAu2OPFPAgl_YD9Fb'); // TODO: add address
-  const userDefaultCallbackAddress = Address.parse('kQA0XSCioq2wv_YlebEFJysRiUxzQ2MIAu2OPFPAgl_YD9Fb'); // TODO: add address
+  const universalRouterAddress = Address.parse('EQDgHbzuBG3bXP_0R_XEqc4nhcS7fwA2zR4VDeAaP4AcdUa2'); // TODO: add address
+  const userDefaultCallbackAddress = Address.parse('EQAFcgv5ieBtRg-7G842_WU5xPxLLhrRNSPFpKzz7INDoEmR'); // TODO: add address
 
   const handleClick = async () => {
     if (!tonConnectUI.connected) {
