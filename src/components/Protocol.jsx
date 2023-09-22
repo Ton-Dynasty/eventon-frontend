@@ -1,5 +1,3 @@
-import React, { useState } from 'react';
-import Image from '../assets/subscibe.jpg';
 import { useTonConnectUI, useTonAddress } from '@tonconnect/ui-react';
 import { Address, beginCell, toNano } from '@ton/ton';
 import { motion } from 'framer-motion';
@@ -103,7 +101,7 @@ const Protocol = () => {
             <form method="dialog" className="w-full">
               <div className="form-control flex flex-col gap-4">
                 {forms.map((form, idx) => (
-                  <div className="">
+                  <div className="" key={`form-${idx}`}>
                     <label className="label">
                       <span className="label-text font-semibold text-lg">{form.name}</span>
                     </label>
@@ -144,12 +142,12 @@ const Protocol = () => {
               whileInView={'show'}
               className="chat chat-start"
             >
-              <div className="chat-bubble bg-blue-600 ">
+              <div className="chat-bubble bg-blue-600 text-white">
                 GM! <br />I have a contract bug detection signal.
               </div>
             </motion.div>
             <motion.div variants={fadeIn('left', 0.6)} initial="hidden" whileInView={'show'} className="chat chat-end">
-              <div className="chat-bubble  bg-blue-800">Let me subscribe BRO!!</div>
+              <div className="chat-bubble  bg-blue-800 text-white">Let me subscribe BRO!!</div>
             </motion.div>
           </motion.div>
           <div>
@@ -183,7 +181,7 @@ const Protocol = () => {
         className="mt-6 flex flex-row gap-8"
       >
         <button className="btn bg-blue-700 text-white hover:bg-blue-500 border-none text-lg font-base">Popular</button>
-        <button className="btn btn-neutral  text-lg font-base">Official</button>
+        <button className="btn btn-neutral text-lg  dark:text-blue-300 text-white font-base">Official</button>
       </motion.div>
       <div className="mt-6 grid gap-x-2 md:grid-cols-2 grid-cols-1 gap-4">
         {cards.map((card, idx) => (
@@ -191,7 +189,7 @@ const Protocol = () => {
             variants={fadeIn('down', 0.4)}
             initial="hidden"
             whileInView={'show'}
-            className="card w-full gap-12 bg-base-100/40 shadow-xl col-span-1"
+            className="card w-full gap-12 bg-white/50 shadow-xl col-span-1"
             key={`carditem-${idx}`}
           >
             <div className="card-body">

@@ -39,10 +39,10 @@
     @apply h-[48px] px-6 text-sm;
   }
   .my-btn-lg {
-    @apply h-[56px] px-10 text-base;
+    @apply h-[56px] px-10 text-white;
   }
   .my-btn-link {
-    @apply text-base;
+    @apply text-white;
   }
   .text-gradient {
     @apply bg-gradient-to-r text-transparent bg-clip-text from-blue-950 to-blue-950 font-bold font-primary;

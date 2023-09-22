@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { fadeIn } from '../variants';
 import { TypeAnimation } from 'react-type-animation';
@@ -30,7 +29,7 @@ const Contact = () => {
               <TypeAnimation
                 sequence={['eventon.ton', 3000, 'dynasty.ton', 3000]}
                 speed={50}
-                className="mr-4 text-black font-mono font-bold"
+                className="mr-4 text-white font-mono font-bold"
                 wrapper="span"
                 repeat={Infinity}
               ></TypeAnimation>
