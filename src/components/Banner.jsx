@@ -31,7 +31,7 @@ const Banner = () => {
   }`
   return (
     <section className="min-h-[85vh] lg:min-h-[78vh]" id="home">
-      <div className="container mx-auto">
+      <div className="container mx-auto flex flex-col justify-between">
         <div className="flex flex-col gap-y-8 lg:ml-8 lg:flex-row lg:items-center lg:gap-x-12">
           <div className="flex-1 text-center font-secondary lg:text-left">
             <motion.h1
@@ -53,7 +53,7 @@ const Banner = () => {
               <span className="mr-4">A </span>
               <TypeAnimation
                 sequence={["Flexible", 2000, "Easy", 2000, "Scalable", 2000]}
-                speed={100}
+                speed={40}
                 className="mr-4 text-blue-600"
                 wrapper="span"
                 repeat={Infinity}
@@ -119,20 +119,25 @@ const Banner = () => {
           </motion.div>
 
         </div>
-        <div className="grid grid-cols-2 gap-4 mt-8">
-          <div className="lg:col-span-1 gap-4 col-span-2 flex flex-col items-center justify-center">
-            <h2 className="font-bold text-5xl flex flex-col items-center justify-center">
-              Customize event signal</h2>
-            <div className="text-base text-gray-500">
-              <p className="text-lg text-black">
-                Eventon is a message hub for event on TON. It allows you to
-                create a protocol and subscribe to other protocols.
-              </p>
-              </div>
-          </div>
-          <div className="lg:col-span-1 col-span-2 mockup-code text-sm">
+        <div className="grid grid-cols-2 gap-4 mt-12">
+          <motion.div
+                      variants={fadeIn("right", 0.5)}
+                      initial="hidden"
+                      whileInView={"show"}
+                       className="lg:col-span-1 gap-4 col-span-2 flex flex-col items-center justify-center">
+            <h2 className="font-bold text-5xl min-w-max">
+              Customize <span className=" text-blue-600">event signal</span></h2>
+            <div className="text-2xl text-black text-center">
+              By simply inheriting from alertable and filling in the message payload, you can send any event signal to the subscriber's contract.         
+              </div>    
+          </motion.div>
+          <motion.div 
+              variants={fadeIn("left", 0.5)}
+              initial="hidden"
+              whileInView={"show"}
+              className="lg:col-span-1 col-span-2 mockup-code text-sm">
             <pre data-prefix="$"><code>{eventSignalCode}</code></pre>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

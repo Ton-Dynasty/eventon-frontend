@@ -26,11 +26,11 @@ const Contact = () => {
       <div className="container mx-auto">
         <div className="mockup-browser border-base-300 border">
           <div className="mockup-browser-toolbar">
-            <div className="input border-base-300 border text-white">
+            <div className="input border-base-300 border">
               <TypeAnimation
                 sequence={["eventon.ton", 3000, "dynasty.ton", 3000]}
                 speed={50}
-                className="mr-4 text-blue-100"
+                className="mr-4 text-black font-mono font-bold"
                 wrapper="span"
                 repeat={Infinity}
               ></TypeAnimation>
@@ -39,7 +39,7 @@ const Contact = () => {
           <div className="border-base-300 grid grid-cols-3 flex-col justify-center gap-4 border-t px-8 py-16">
             <motion.div
               className="col-span-1"
-              variants={fadeIn("left", 0.4)}
+              variants={fadeIn("right", 0.4)}
               initial="hidden"
               whileInView={"show"}
               viewport={{ once: false, amount: 0.3 }}
@@ -59,7 +59,7 @@ const Contact = () => {
 
             <motion.div
               className="col-span-2 mx-4"
-              variants={fadeIn("right", 0.4)}
+              variants={fadeIn("left", 0.4)}
               initial="hidden"
               whileInView={"show"}
               viewport={{ once: false, amount: 0.3 }}
