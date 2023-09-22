@@ -14,7 +14,7 @@ import { useAutoAnimate } from '@formkit/auto-animate/react'
 
 const router = createBrowserRouter([
   {
-    path: "/eventon-frontend",
+    path: "/",
     element: (
       <div>
         <Banner />
@@ -29,11 +29,14 @@ const router = createBrowserRouter([
 
   },
   {
-    path: "/eventon-frontend/app",
+    path: "/app",
     element: <Protocol />,
   },
 
-]);
+],
+{
+  basename: "/eventon-frontend",
+});
 
 const App = () => {
   const [parent, enableAnimations] = useAutoAnimate(/* optional config */)
