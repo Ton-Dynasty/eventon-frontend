@@ -10,7 +10,6 @@ import Contact from "./components/Contact";
 import Protocol from "./components/Protocol";
 import { THEME, TonConnectUIProvider } from "@tonconnect/ui-react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { useAutoAnimate } from '@formkit/auto-animate/react'
 
 const router = createBrowserRouter([
   {
@@ -39,14 +38,13 @@ const router = createBrowserRouter([
 });
 
 const App = () => {
-  const [parent, enableAnimations] = useAutoAnimate(/* optional config */)
 
   return (
     <TonConnectUIProvider
       manifestUrl="https://ton-connect.github.io/demo-dapp-with-react-ui/tonconnect-manifest.json"
       uiPreferences={{ theme: THEME.LIGHT }}
     >
-      <div className="overflow-hidden bg-site bg-cover bg-no-repeat" ref={parent}>
+      <div className="overflow-hidden bg-site bg-cover bg-no-repeat" >
         <Header />
         <RouterProvider router={router}></RouterProvider>
       </div>

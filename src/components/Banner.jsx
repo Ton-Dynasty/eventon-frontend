@@ -120,10 +120,11 @@ const Banner = () => {
 
         </div>
         <div className="grid grid-cols-2 gap-4 mt-8">
-          <div className="lg:col-span-1 col-span-2">
-            <h2 className="h2 font-bold">Cool</h2>
+          <div className="lg:col-span-1 gap-4 col-span-2 flex flex-col items-center justify-center">
+            <h2 className="font-bold text-5xl flex flex-col items-center justify-center">
+              Customize event signal</h2>
             <div className="text-base text-gray-500">
-              <p>
+              <p className="text-lg text-black">
                 Eventon is a message hub for event on TON. It allows you to
                 create a protocol and subscribe to other protocols.
               </p>
