@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Image from '../assets/subscibe.jpg';
 import { useTonConnectUI } from '@tonconnect/ui-react';
 import { Address, beginCell, toNano } from '@ton/ton';
@@ -8,8 +8,11 @@ const Protocol = () => {
   const deadline = Math.floor(Date.now() / 1000) + 3600;
   const universalRouterAddress = Address.parse('kQA0XSCioq2wv_YlebEFJysRiUxzQ2MIAu2OPFPAgl_YD9Fb'); // TODO: add address
   const userDefaultCallbackAddress = Address.parse('kQA0XSCioq2wv_YlebEFJysRiUxzQ2MIAu2OPFPAgl_YD9Fb'); // TODO: add address
-
+  const [showToast, setShowToast] = useState(false);
   const handleClick = async () => {
+    setInterval(() => {
+      setShowToast(true);
+    }, 3000);
     if (!tonConnectUI.connected) {
       alert('Please connect to wallet');
       return;
@@ -21,6 +24,7 @@ const Protocol = () => {
       .storeInt(0, 257)
       .storeRef(beginCell().storeAddress(userDefaultCallbackAddress).endCell())
       .endCell();
+
     await tonConnectUI.sendTransaction({
       validUntil: deadline,
       messages: [
@@ -31,8 +35,18 @@ const Protocol = () => {
         },
       ],
     });
-  };
 
+  };
+  const SuccessMessage = () => {
+    if (showToast) {
+      return (<div className="toast toast-bottom toast-end">
+          <div className="alert alert-success">
+            <span>Message sent successfully.</span>
+          </div>
+        </div>)
+      }
+    
+    }
   const cards = [
     {
       image: Image,
@@ -84,8 +98,9 @@ const Protocol = () => {
           </div>
         ))}
       </div>
+      <SuccessMessage />
     </div>
   );
-};
+}
 
 export default Protocol;

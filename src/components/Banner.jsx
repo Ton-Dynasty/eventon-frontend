@@ -8,6 +8,27 @@ import { Link as ScrollLink } from "react-scroll";
 import { Link } from "react-router-dom";
 
 const Banner = () => {
+  const eventSignalCode = `import "@stdlib/ownable";
+
+  trait Alertable with Ownable {
+      owner: Address;
+      universalRouterAddress: Address;
+      eventId: Int; // Event id of this protocol
+  
+      // Send event signal to Universal Router so that it can be broadcasted to subscribers
+      fun sendAlert(msg: EventSignal) {
+          send(SendParameters{
+              to: self.universalRouterAddress, 
+              value: 0,
+              bounce: false,
+              mode: SendRemainingValue,
+              body: EventSignal{ 
+                  eventId: msg.eventId, // This is protocol's event signal id, it can let one protocol to have multiple event signals(not implemented yet)
+                  payload: msg.payload // Information about the event signal
+              }.toCell()
+          });
+      }
+  }`
   return (
     <section className="min-h-[85vh] lg:min-h-[78vh]" id="home">
       <div className="container mx-auto">
@@ -96,6 +117,21 @@ const Banner = () => {
           >
             <img src={Image} alt="" />
           </motion.div>
+
+        </div>
+        <div className="grid grid-cols-2 gap-4 mt-8">
+          <div className="lg:col-span-1 col-span-2">
+            <h2 className="h2 font-bold">Cool</h2>
+            <div className="text-base text-gray-500">
+              <p>
+                Eventon is a message hub for event on TON. It allows you to
+                create a protocol and subscribe to other protocols.
+              </p>
+              </div>
+          </div>
+          <div className="lg:col-span-1 col-span-2 mockup-code text-sm">
+            <pre data-prefix="$"><code>{eventSignalCode}</code></pre>
+          </div>
         </div>
       </div>
     </section>
